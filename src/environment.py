@@ -10,8 +10,6 @@ class Environment:
         for row in self.board:
             if 0 in row:
                 has_empty_value=True
-        if not has_empty_value:
-            print()
         return not has_empty_value
 
     def number_is_in_row(self, number, row):
@@ -49,10 +47,23 @@ class Environment:
                 if self.can_add_number(number, column, row) and self.board[row][column] == 0:
                     self.board[row][column] = number
         else:
+            # self.board[0][0] = 2
+            # self.board[0][1] = 3
+            # self.board[0][3] = 1
+            # self.board[1][0] = 1
+            # self.board[1][3] = 2
+            # self.board[2][1] = 1
+            # self.board[2][3] = 3
             self.board[0][0] = 2
-            self.board[0][1] = 3
-            self.board[0][3] = 1
-            self.board[1][0] = 1
-            self.board[1][3] = 2
-            self.board[2][1] = 1
-            self.board[2][3] = 3
+            self.board[1][1] = 1
+            self.board[1][3] = 3
+            self.board[3][2] = 1
+            self.board[3][3] = 2
+
+    def copy(self,row_index_to_change,column_index_to_change,number):
+        new_environment = Environment()
+        new_environment.dimension = 4
+        # new_environment.board = [*self.board]
+        # new_environment.board[row_index_to_change][column_index_to_change]=number
+        new_environment.difficulty = 3
+        return new_environment
