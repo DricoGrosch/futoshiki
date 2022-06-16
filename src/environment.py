@@ -6,10 +6,13 @@ class Environment:
     difficulty = 1
 
     def finish(self):
+        has_empty_value=False
         for row in self.board:
             if 0 in row:
-                return False
-        return True
+                has_empty_value=True
+        if not has_empty_value:
+            print()
+        return not has_empty_value
 
     def number_is_in_row(self, number, row):
         return number in self.board[row]

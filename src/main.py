@@ -5,7 +5,10 @@ from src.environment import Environment
 env = Environment(random_start=False)
 env.print_matrix()
 agent=Agent(env)
-agent.build_winning_track()
+env = agent.build_winning_board()
+agent.env=env
+agent.env.print_matrix()
+
 
 
 
