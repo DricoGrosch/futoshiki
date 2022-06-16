@@ -16,7 +16,7 @@ class Agent:
         winning_env=[]
         while(not meta_node_found):
             current_env=self.graph.current_node.env
-            meta_node_found = self.env.finish()
+            meta_node_found = current_env.finish()
             if meta_node_found:
                 winning_env=current_env
             current_node_neighbors = self.graph.get_node_neighbors()

@@ -1,10 +1,6 @@
 import random
 
 class Environment:
-    dimension = None
-    board = []
-    difficulty = 1
-
     def finish(self):
         has_empty_value=False
         for row in self.board:
@@ -63,7 +59,7 @@ class Environment:
     def copy(self,row_index_to_change,column_index_to_change,number):
         new_environment = Environment()
         new_environment.dimension = 4
-        # new_environment.board = [*self.board]
-        # new_environment.board[row_index_to_change][column_index_to_change]=number
+        new_environment.board = [*self.board]
+        new_environment.board[row_index_to_change][column_index_to_change]=number
         new_environment.difficulty = 3
         return new_environment
