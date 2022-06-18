@@ -28,12 +28,6 @@ class Environment:
                         return number_to_add > previous_tile.number
                     elif restriction == '>':
                         return number_to_add < previous_tile.number
-                    # else:
-                    # if row > 0:
-                    #     if restriction == '^':
-                    #         return number_to_add > self.board[row - 1][column]
-                    #     else:
-                    #         return number_to_add < self.board[row - 1][column]
         if row > 0:
             upper_tile = self.board[row - 1][column]
             if upper_tile.restictions:
