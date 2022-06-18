@@ -37,6 +37,7 @@ class Agent:
             if finished:
                 if winner:
                     winning_board = current_env.board
+                continue
             next_node_to_visit = self.pop_from_open_nodes(self.graph.open_nodes)
 
             if next_node_to_visit:
