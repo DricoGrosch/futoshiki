@@ -40,18 +40,19 @@ class Environment:
         for restriction in current_tile.restictions:
             if restriction == '<':
                 if self.board[row][column + 1].number > 0:
-                    return number_to_add < self.board[row][column + 1]
+                    return number_to_add < self.board[row][column + 1].number
                 return True
             elif restriction == '>':
                 if self.board[row][column + 1].number > 0:
-                    return number_to_add > self.board[row][column + 1] and self.board[row][column + 1] < number_to_add
+                    return number_to_add > self.board[row][column + 1].number and self.board[row][
+                        column + 1].number < number_to_add
                 return True
             elif restriction == '^':
                 if self.board[row + 1][column].number > 0:
-                    return number_to_add < self.board[row + 1][column]
+                    return number_to_add < self.board[row + 1][column].number
             else:
                 if self.board[row + 1][column].number > 0:
-                    return number_to_add > self.board[row + 1][column]
+                    return number_to_add > self.board[row + 1][column].number
         return True
 
     def print_matrix(self):
@@ -77,21 +78,13 @@ class Environment:
                 available_numbers.append(number)
         return available_numbers
 
-    def __init__(self, dimension=4, random_start=True):
+    def __init__(self, dimension=4, game_number=1):
         self.dimension = dimension
         self.board = []
         for i in range(dimension):
             self.board.append([Tile(0, []) for j in range(dimension)])
-
-        if random_start:
-            for i in range(dimension):
-                number = int(random.randrange(1, dimension))
-                column = int(random.randrange(0, dimension - 1))
-                row = int(random.randrange(0, dimension - 1))
-                if self.can_add_number(number, column, row) and self.board[row][column].number == 0:
-                    self.board[row][column].number = number
-        else:
-            # PRIMEIRO JOGO
+        # easy
+        if game_number == 1:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -117,6 +110,96 @@ class Environment:
             self.board[1][2].restictions = ['<', '^']
             self.board[2][2].restictions = ['<']
             self.board[3][1].restictions = ['>']
+        # extreme
+        elif game_number == 2:
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][3].number = 0
+
+            self.board[3][0].number = 1
+            self.board[3][1].number = 3
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+
+            self.board[0][0].restictions = ['V']
+            self.board[0][1].restictions = ['>']
+            self.board[1][2].restictions = ['^']
+            self.board[2][1].restictions = ['^']
+            self.board[3][2].restictions = ['>']
+        # extreme 6x6
+        elif game_number == 3:
+            self.board[0][0].number = 1
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][3].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+            self.board[3][4].number = 0
+            self.board[3][5].number = 2
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 0
+            self.board[5][5].number = 0
+
+            self.board[0][1].restictions=['V','<']
+            self.board[0][4].restictions=['V']
+            self.board[1][2].restictions=['>','^']
+            self.board[1][3].restictions=['>']
+            self.board[1][4].restictions=['>']
+            self.board[2][0].restictions=['V']
+            self.board[3][0].restictions=['<']
+            self.board[3][3].restictions=['<']
+            self.board[4][4].restictions=['^']
+            self.board[5][0].restictions=['<']
+            self.board[5][4].restictions=['<']
+
+
+
+
+
+
+
+
 
     def create_node(self, row, column, number):
         _env = copy.deepcopy(self)
