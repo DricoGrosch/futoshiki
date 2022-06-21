@@ -6,81 +6,10 @@ from src.tile import Tile
 
 
 class Environment:
-
-    def number_is_in_row(self, number, row):
-        for tile in self.board[row]:
-            if tile.number == number:
-                return True
-        return False
-
-    def number_is_in_column(self, number, column):
-        for row in self.board:
-            if row[column].number == number:
-                return True
-        return False
-
-    def number_available_in_restrictions(self, current_tile, number_to_add, row, column):
-        if column > 0:
-            previous_tile = self.board[row][column - 1]
-            if previous_tile.restictions:
-                for restriction in previous_tile.restictions:
-                    if restriction == '<':
-                        return number_to_add > previous_tile.number
-                    elif restriction == '>':
-                        return number_to_add < previous_tile.number
-        if row > 0:
-            upper_tile = self.board[row - 1][column]
-            if upper_tile.restictions:
-                for restriction in upper_tile.restictions:
-                    if restriction == '^':
-                        return number_to_add > upper_tile.number
-                    elif restriction == 'V':
-                        return number_to_add < upper_tile.number
-
-        for restriction in current_tile.restictions:
-            if restriction == '<':
-                if self.board[row][column + 1].number > 0:
-                    return number_to_add < self.board[row][column + 1].number
-                return True
-            elif restriction == '>':
-                if self.board[row][column + 1].number > 0:
-                    return number_to_add > self.board[row][column + 1].number and self.board[row][
-                        column + 1].number < number_to_add
-                return True
-            elif restriction == '^':
-                if self.board[row + 1][column].number > 0:
-                    return number_to_add < self.board[row + 1][column].number
-            else:
-                if self.board[row + 1][column].number > 0:
-                    return number_to_add > self.board[row + 1][column].number
-        return True
-
-    def print_matrix(self):
-        str_board = ''
-        for row in self.board:
-            line = ' '.join([str(tile.number) + ''.join(tile.restictions) for tile in row])
-            str_board += line + '\n'
-        print(str_board)
-
-    def can_add_number(self, number, column, row):
-        number_is_in_column = self.number_is_in_column(number, column)
-        number_is_in_row = self.number_is_in_row(number, row)
-        current_tile = self.board[row][column]
-        number_available_in_restrictions = self.number_available_in_restrictions(current_tile, number, row, column)
-        return not number_is_in_row and not number_is_in_column and number_available_in_restrictions
-
-    def get_available_numbers_to_throw(self, row, column):
-        if self.board[row][column].number > 0:
-            return [self.board[row][column].number]
-        available_numbers = []
-        for number in range(1, self.dimension + 1):
-            if self.can_add_number(number, column, row):
-                available_numbers.append(number)
-        return available_numbers
-
     def __init__(self, dimension=4, game_number=1):
         self.dimension = dimension
         self.board = []
+        self.violations = 0
         for i in range(dimension):
             self.board.append([Tile(0, []) for j in range(dimension)])
         # easy
@@ -373,6 +302,137 @@ class Environment:
             self.board[8][6].restictions = []
             self.board[8][7].restictions = ['>']
             self.board[8][8].restictions = []
+
+    def number_is_in_row(self, number, row):
+        for tile in self.board[row]:
+            if tile.number == number:
+                return True
+        return False
+
+    def number_is_in_column(self, number, column):
+        for row in self.board:
+            if row[column].number == number:
+                return True
+        return False
+
+    def number_available_in_restrictions(self, current_tile, number_to_add, row, column):
+        if column > 0:
+            previous_tile = self.board[row][column - 1]
+            if previous_tile.restictions:
+                for restriction in previous_tile.restictions:
+                    if restriction == '<':
+                        return number_to_add > previous_tile.number
+                    elif restriction == '>':
+                        return number_to_add < previous_tile.number
+        if row > 0:
+            upper_tile = self.board[row - 1][column]
+            if upper_tile.restictions:
+                for restriction in upper_tile.restictions:
+                    if restriction == '^':
+                        return number_to_add > upper_tile.number
+                    elif restriction == 'V':
+                        return number_to_add < upper_tile.number
+
+        for restriction in current_tile.restictions:
+            if restriction == '<':
+                if self.board[row][column + 1].number > 0:
+                    return number_to_add < self.board[row][column + 1].number
+                return True
+            elif restriction == '>':
+                if self.board[row][column + 1].number > 0:
+                    return number_to_add > self.board[row][column + 1].number and self.board[row][
+                        column + 1].number < number_to_add
+                return True
+            elif restriction == '^':
+                if self.board[row + 1][column].number > 0:
+                    return number_to_add < self.board[row + 1][column].number
+            else:
+                if self.board[row + 1][column].number > 0:
+                    return number_to_add > self.board[row + 1][column].number
+        return True
+
+    def print_matrix(self):
+        str_board = ''
+        for row in self.board:
+            line = ' '.join([str(tile.number) + ''.join(tile.restictions) for tile in row])
+            str_board += line + '\n'
+        print(str_board)
+
+    def randomize_board(self):
+        for row_index, row in enumerate(self.env.board):
+            for column_index, column in enumerate(row):
+                if not self.board[row_index][column_index].number:
+                    self.board[row_index][column_index].number = random.randrange(1, self.dimension)
+
+    def can_add_number(self, number, column, row):
+        number_is_in_column = self.number_is_in_column(number, column)
+        number_is_in_row = self.number_is_in_row(number, row)
+        current_tile = self.board[row][column]
+        number_available_in_restrictions = self.number_available_in_restrictions(current_tile, number, row, column)
+        return not number_is_in_row and not number_is_in_column and number_available_in_restrictions
+
+    def get_available_numbers_to_throw(self, row, column):
+        if self.board[row][column].number > 0:
+            return [self.board[row][column].number]
+        available_numbers = []
+        for number in range(1, self.dimension + 1):
+            if self.can_add_number(number, column, row):
+                available_numbers.append(number)
+        return available_numbers
+
+    def count_tile_restrictions_violations(self, current_tile, number_to_add, row, column):
+        violations = 0
+        if column > 0:
+            previous_tile = self.board[row][column - 1]
+            if previous_tile.restictions:
+                for restriction in previous_tile.restictions:
+                    if restriction == '<':
+                        if number_to_add < previous_tile.number:
+                            violations += 1
+                    elif restriction == '>':
+                        if number_to_add > previous_tile.number:
+                            violations += 1
+
+        if row > 0:
+            upper_tile = self.board[row - 1][column]
+            if upper_tile.restictions:
+                for restriction in upper_tile.restictions:
+                    if restriction == '^':
+                        if number_to_add < upper_tile.number:
+                            violations += 1
+                    elif restriction == 'V':
+                        if number_to_add > upper_tile.number:
+                            violations += 1
+
+        for restriction in current_tile.restictions:
+            if restriction == '<':
+                if self.board[row][column + 1].number > 0:
+                    if number_to_add > self.board[row][column + 1].number:
+                        violations += 1
+            elif restriction == '>':
+                if self.board[row][column + 1].number > 0:
+                    if number_to_add < self.board[row][column + 1].number and self.board[row][
+                        column + 1].number > number_to_add:
+                        violations += 1
+
+            elif restriction == '^':
+                if self.board[row + 1][column].number > 0:
+                    if number_to_add > self.board[row + 1][column].number:
+                        violations += 1
+            else:
+                if self.board[row + 1][column].number > 0:
+                    if number_to_add < self.board[row + 1][column].number:
+                        violations += 1
+            return violations
+
+    def refresh_violations(self):
+        _violations = 0
+        for row_index, row in enumerate(self.board):
+            for column_index, column in enumerate(row):
+                current_tile = self.board[row_index][column_index]
+                _violations += self.count_tile_restrictions_violations(current_tile, current_tile.number, row_index,
+                                                                       column_index)
+        self.violations = _violations
 
     def create_node(self, row, column, number):
         _env = copy.deepcopy(self)

@@ -29,7 +29,9 @@ class Agent:
     def build_winning_board(self):
         finished = False
         winning_board = []
+        counter = 0
         while (not finished):
+            counter += 1
             current_env = self.graph.current_node.env
             current_node_neighbors = self.graph.get_node_neighbors()
             self.graph.add_open_nodes(current_node_neighbors)

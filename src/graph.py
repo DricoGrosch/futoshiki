@@ -29,7 +29,10 @@ class Graph:
 
     def add_open_nodes(self, current_node_neighbors):
         for neighbor in current_node_neighbors:
-            self.open_nodes.append(neighbor)
+            if neighbor not in self.open_nodes:
+                self.open_nodes.append(neighbor)
+            else:
+                print('asdasd')
 
     def visit_node(self, next_node_to_visit):
         self.current_node = next_node_to_visit
