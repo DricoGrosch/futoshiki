@@ -7,7 +7,7 @@ from src.lbs_agent import LBSAgent
 from src.node import Node
 from src.tile import Tile
 
-env = Environment(game_number=1, dimension=4)
+env = Environment(game_number=3, dimension=6)
 env.print_matrix()
 # agent = Agent(env)
 agent = LBSAgent(env)

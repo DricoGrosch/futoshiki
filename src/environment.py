@@ -319,13 +319,15 @@ class Environment:
                 return True
         return False
 
-    def check_violation_in_row(self, number, row, column):
-        for column_idx, tile in enumerate(self.board[row]):
-            if column_idx == column:
-                continue
-            if tile.number == number:
-                return True
-        return False
+    def check_violation_in_row(self, number, row, current_tile_column):
+        _violations =0
+
+        for column_index, tile in enumerate(self.board[row]):
+            if column_index==current_tile_column:
+               continue
+            if tile.number==number:
+                _violations+=1
+        return _violations
 
     def number_is_in_column(self, number, column):
         for row in self.board:
@@ -333,13 +335,15 @@ class Environment:
                 return True
         return False
 
-    def check_violation_in_column(self, number, column, _row):
-        for row_idx, row in enumerate(self.board):
-            if row_idx == _row:
-                continue
-            if row[column].number == number:
-                return True
-        return False
+    def check_violation_in_column(self, number, column, current_tile_row):
+        _violations =0
+        for row_index, row in enumerate(self.board):
+            if row_index==current_tile_row:
+               continue
+            if row[column].number==number:
+                _violations +=1
+        return _violations
+
 
     def number_available_in_restrictions(self, current_tile, number_to_add, row, column):
         if column > 0:
@@ -378,10 +382,7 @@ class Environment:
         return True
 
     def print_matrix(self):
-        str_board = ''
-        for row in self.board:
-            line = ' '.join([str(tile.number) + ''.join(tile.restictions) for tile in row])
-            str_board += line + '\n'
+        str_board = self.board_to_str()
         print(str_board)
 
     def randomize_board(self):
@@ -389,6 +390,7 @@ class Environment:
             for column_index, column in enumerate(row):
                 if not self.board[row_index][column_index].number:
                     self.board[row_index][column_index].number = random.randrange(1, self.dimension)
+                    # self.board[row_index][column_index].number = 1
 
     def can_add_number(self, number, column, row):
         number_is_in_column = self.number_is_in_column(number, column)
@@ -406,14 +408,11 @@ class Environment:
                 available_numbers.append(number)
         return available_numbers
 
-    def count_tile_restrictions_violations(self, current_tile, number_to_add, row, column):
+    def count_tile_restrictions_violations(self, current_tile, row, column):
         violations = 0
-        number_is_in_column = self.check_violation_in_column(number_to_add, column, row)
-        number_is_in_row = self.check_violation_in_row(number_to_add, row, column)
-        if number_is_in_column:
-            violations += 1
-        if number_is_in_row:
-            violations += 1
+        violations += self.check_violation_in_column(current_tile.number,column,row)
+        violations += self.check_violation_in_row(current_tile.number,row,column)
+
         # if column > 0:
         #     previous_tile = self.board[row][column - 1]
         #     if previous_tile.restictions:
@@ -456,18 +455,19 @@ class Environment:
         #             if number_to_add <= self.board[row + 1][column].number:
         #                 violations += 1
         return violations
+    def board_to_str(self):
+        str_board = ''
+        for row in self.board:
+            line = ' '.join([str(tile.number) + ''.join(tile.restictions) for tile in row])
+            str_board += line + '\n'
+        return str_board
 
-    def refresh_violations(self, _row_index, _column_index):
+    def refresh_violations(self):
         _violations = 0
         for row_index, row in enumerate(self.board):
             for column_index, column in enumerate(row):
                 current_tile = self.board[row_index][column_index]
-                if row_index == _row_index and column_index == _column_index:
-                    continue
-                _violations += self.count_tile_restrictions_violations(current_tile,
-                                                                       self.board[_row_index][_column_index].number,
-                                                                       row_index,
-                                                                       column_index)
+                _violations += self.count_tile_restrictions_violations(current_tile,row_index,column_index)
         self.violations = _violations
 
     def create_node(self, row, column, number):
