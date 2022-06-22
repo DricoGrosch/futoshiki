@@ -250,6 +250,50 @@ class Environment:
             self.board[8][8].number = 8
             self.board[8][8].default = True
             # ----------------------
+        # extreme 4x4 alternastiva jogo 2
+        elif game_number == 5:
+            self.board[0][0].number = 4
+            self.board[0][0].default=True
+            self.board[0][1].number = 2
+            self.board[0][1].default=True
+            self.board[0][2].number = 1
+            self.board[0][2].default=True
+            self.board[0][3].number = 3
+            self.board[0][3].default=True
+
+            self.board[1][0].number = 3
+            self.board[1][0].default=True
+            self.board[1][1].number = 4
+            self.board[1][1].default=True
+            self.board[1][2].number = 2
+            self.board[1][2].default=True
+            self.board[1][3].number = 1
+            self.board[1][3].default=True
+
+            self.board[2][0].number = 2
+            self.board[2][0].default=True
+            self.board[2][1].number = 1
+            self.board[2][1].default=True
+            self.board[2][2].number = 3
+            self.board[2][2].default=True
+            self.board[2][3].number = 4
+            self.board[2][3].default=True
+
+            self.board[3][0].number = 1
+            self.board[3][0].default=True
+            self.board[3][0].default = True
+            self.board[3][1].number = 3
+            self.board[3][1].default=True
+            self.board[3][1].default = True
+            self.board[3][2].number = 4
+            self.board[3][2].default=True
+            self.board[3][3].number = 0
+
+            self.board[0][0].restictions = ['V']
+            self.board[0][1].restictions = ['>']
+            self.board[1][2].restictions = ['^']
+            self.board[2][1].restictions = ['^']
+            self.board[3][2].restictions = ['>']
 
 
     def number_is_in_row(self, number, row):

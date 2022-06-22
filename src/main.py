@@ -7,10 +7,10 @@ from src.lbs_agent import LBSAgent
 from src.node import Node
 from src.tile import Tile
 
-env = Environment(game_number=2, dimension=4)
+env = Environment(game_number=5, dimension=4)
 env.print_matrix()
-agent = Agent(env)
-# agent = LBSAgent(env)
+# agent = Agent(env)
+agent = LBSAgent(env)
 winning_board = None
 start = datetime.datetime.now()
 for number in env.get_available_numbers_to_throw(0, 0):
