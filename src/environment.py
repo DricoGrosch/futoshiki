@@ -131,60 +131,57 @@ class Environment:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
-            self.board[0][3].number = 0
+            self.board[0][3].number = 6
             self.board[0][4].number = 0
             self.board[0][5].number = 0
-            self.board[0][6].number = 0
-            self.board[0][7].number = 0
-            self.board[0][8].number = 0
+            self.board[0][6].number = 8
+            self.board[0][7].number = 9
+            self.board[0][8].number = 5
 
             self.board[1][0].number = 0
-            self.board[1][1].number = 0
+            self.board[1][1].number = 4
             self.board[1][2].number = 0
-            self.board[1][3].number = 0
-            self.board[1][4].number = 4
-            self.board[1][4].default = True
+            self.board[1][3].number = 1
+            self.board[1][4].number = 0
             self.board[1][5].number = 0
-            self.board[1][6].number = 0
-            self.board[1][7].number = 0
+            self.board[1][6].number = 5
+            self.board[1][7].number = 2
             self.board[1][8].number = 0
 
             self.board[2][0].number = 0
-            self.board[2][1].number = 0
+            self.board[2][1].number = 1
             self.board[2][2].number = 0
             self.board[2][3].number = 0
-            self.board[2][4].number = 0
-            self.board[2][5].number = 0
-            self.board[2][6].number = 0
+            self.board[2][4].number = 6
+            self.board[2][5].number = 7
+            self.board[2][6].number = 4
             self.board[2][7].number = 0
-            self.board[2][8].number = 0
+            self.board[2][8].number = 3
 
             self.board[3][0].number = 0
             self.board[3][1].number = 0
-            self.board[3][2].number = 6
-            self.board[3][2].default = True
-            self.board[3][3].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 3
             self.board[3][4].number = 0
             self.board[3][5].number = 0
-            self.board[3][6].default = True
+            self.board[3][6].number = 0
             self.board[3][7].number = 0
             self.board[3][8].number = 0
 
-            self.board[4][0].number = 0
+            self.board[4][0].number = 6
             self.board[4][1].number = 0
             self.board[4][2].number = 0
             self.board[4][3].number = 0
-            self.board[4][4].number = 0
-            self.board[4][5].number = 0
-            self.board[4][6].number = 0
-            self.board[4][7].number = 0
-            self.board[4][8].number = 5
-            self.board[4][8].default = True
+            self.board[4][4].number = 3
+            self.board[4][5].number = 8
+            self.board[4][6].number = 7
+            self.board[4][7].number = 1
+            self.board[4][8].number = 0
 
-            self.board[5][0].number = 0
+            self.board[5][0].number = 4
             self.board[5][1].number = 0
-            self.board[5][2].number = 0
-            self.board[5][3].number = 0
+            self.board[5][2].number = 2
+            self.board[5][3].number = 7
             self.board[5][4].number = 0
             self.board[5][5].number = 0
             self.board[5][6].number = 0
@@ -194,124 +191,34 @@ class Environment:
             self.board[6][0].number = 0
             self.board[6][1].number = 0
             self.board[6][2].number = 0
-            self.board[6][3].number = 0
+            self.board[6][3].number = 2
             self.board[6][4].number = 0
-            self.board[6][5].number = 0
+            self.board[6][5].number = 3
             self.board[6][6].number = 0
-            self.board[6][7].number = 0
-            self.board[6][8].number = 0
+            self.board[6][7].number = 7
+            self.board[6][8].number = 6
 
-            self.board[7][0].number = 0
+            self.board[7][0].number = 3
             self.board[7][1].number = 0
             self.board[7][2].number = 0
             self.board[7][3].number = 0
             self.board[7][4].number = 0
-            self.board[7][5].number = 7
-            self.board[7][5].default = True
-            self.board[7][6].number = 0
-            self.board[7][7].default = True
-            self.board[7][8].default = True
+            self.board[7][5].number = 0
+            self.board[7][6].number = 1
+            self.board[7][7].number = 6
+            self.board[7][8].number = 7
+
 
             self.board[8][0].number = 0
             self.board[8][1].number = 0
             self.board[8][2].number = 5
-            self.board[8][2].default = True
             self.board[8][3].number = 0
-            self.board[8][4].default = True
             self.board[8][5].number = 0
             self.board[8][6].number = 0
             self.board[8][7].number = 0
-            self.board[8][8].default = True
+            self.board[8][8].number = 8
             # ----------------------
-            self.board[0][0].restictions = ['>']
-            self.board[0][1].restictions = []
-            self.board[0][2].restictions = ['>']
-            self.board[0][3].restictions = ['>']
-            self.board[0][4].restictions = []
-            self.board[0][5].restictions = ['>', '^']
-            self.board[0][6].restictions = []
-            self.board[0][7].restictions = ['<']
-            self.board[0][8].restictions = []
 
-            self.board[1][0].restictions = ['V']
-            self.board[1][1].restictions = ['>']
-            self.board[1][2].restictions = []
-            self.board[1][3].restictions = ['V']
-            self.board[1][4].restictions = []
-            self.board[1][5].restictions = ['^']
-            self.board[1][6].restictions = []
-            self.board[1][7].restictions = ['>']
-            self.board[1][8].restictions = []
-
-            self.board[2][0].restictions = ['V']
-            self.board[2][1].restictions = []
-            self.board[2][2].restictions = ['V']
-            self.board[2][3].restictions = []
-            self.board[2][4].restictions = []
-            self.board[2][5].restictions = []
-            self.board[2][6].restictions = []
-            self.board[2][7].restictions = []
-            self.board[2][8].restictions = []
-
-            self.board[3][0].restictions = []
-            self.board[3][1].restictions = []
-            self.board[3][2].restictions = ['^', '<']
-            self.board[3][3].restictions = []
-            self.board[3][4].restictions = []
-            self.board[3][5].restictions = []
-            self.board[3][6].restictions = ['V', '<']
-            self.board[3][7].restictions = []
-            self.board[3][8].restictions = []
-
-            self.board[4][0].restictions = ['<']
-            self.board[4][1].restictions = []
-            self.board[4][2].restictions = []
-            self.board[4][3].restictions = ['^']
-            self.board[4][4].restictions = []
-            self.board[4][5].restictions = []
-            self.board[4][6].restictions = []
-            self.board[4][7].restictions = ['>']
-            self.board[4][8].restictions = []
-
-            self.board[5][0].restictions = []
-            self.board[5][1].restictions = []
-            self.board[5][2].restictions = ['^', '<']
-            self.board[5][3].restictions = ['^']
-            self.board[5][4].restictions = ['^']
-            self.board[5][5].restictions = []
-            self.board[5][6].restictions = ['<']
-            self.board[5][7].restictions = []
-            self.board[5][8].restictions = []
-
-            self.board[6][0].restictions = []
-            self.board[6][1].restictions = ['V']
-            self.board[6][2].restictions = []
-            self.board[6][3].restictions = ['^']
-            self.board[6][4].restictions = ['<']
-            self.board[6][5].restictions = ['V']
-            self.board[6][6].restictions = []
-            self.board[6][7].restictions = []
-            self.board[6][8].restictions = []
-
-            self.board[7][0].restictions = []
-            self.board[7][1].restictions = ['^']
-            self.board[7][2].restictions = ['>']
-            self.board[7][3].restictions = ['^']
-            self.board[7][4].restictions = []
-            self.board[7][5].restictions = ['>']
-            self.board[7][6].restictions = []
-            self.board[7][7].restictions = []
-            self.board[7][8].restictions = []
-
-            self.board[8][0].restictions = []
-            self.board[8][1].restictions = []
-            self.board[8][2].restictions = []
-            self.board[8][3].restictions = []
-            self.board[8][4].restictions = []
-            self.board[8][5].restictions = []
-            self.board[8][6].restictions = []
-            self.board[8][7].restictions = ['>']
-            self.board[8][8].restictions = []
 
     def number_is_in_row(self, number, row):
         for tile in self.board[row]:
