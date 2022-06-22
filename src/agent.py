@@ -28,7 +28,7 @@ class Agent:
 
     def build_winning_board(self):
         finished = False
-        winning_board = []
+        winning_env = None
         counter = 0
         while (not finished):
             counter += 1
@@ -38,13 +38,13 @@ class Agent:
             finished, winner = self.finish(current_env)
             if finished:
                 if winner:
-                    winning_board = current_env.board
+                    winning_env = current_env
                 continue
             next_node_to_visit = self.pop_from_open_nodes(self.graph.open_nodes)
 
             if next_node_to_visit:
                 self.graph.visit_node(next_node_to_visit)
-        return winning_board
+        return winning_env
 
     def pop_from_open_nodes(self, open_nodes):
         return self.graph.open_nodes.pop(0)
