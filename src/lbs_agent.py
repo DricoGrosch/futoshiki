@@ -10,7 +10,7 @@ class LBSAgent(Agent):
     def __init__(self, *args, **kwargs):
         self.best_boards = []
         self.envs = []
-        self.k =5
+        self.k =20
         super(LBSAgent, self).__init__(*args, **kwargs)
         for i in range(self.k):
             _env = copy.deepcopy(self.env)
@@ -24,7 +24,7 @@ class LBSAgent(Agent):
         winner_env = None
 
         while (not lost and not winner_env):
-            lost = (datetime.datetime.now() - start).total_seconds() > 60
+            # lost = (datetime.datetime.now() - start).total_seconds() > 60
             child_envs = []
             for env in self.envs:
                 for row_index, row in enumerate(env.board):
@@ -40,12 +40,31 @@ class LBSAgent(Agent):
 
             random.shuffle(child_envs)
             sorted_envs = list(sorted(child_envs, key=lambda env: env.violations, ))
-            best_envs=sorted_envs[0:self.k]
+            best_envs=[]
+            idx=0
+            for env in sorted_envs:
+                if idx==self.k:
+                    break
+                if not best_envs:
+                    best_envs.append(env)
+                    idx+=1
+                else:
+                    board_duplicated = False
+                    for _env in best_envs:
+                        if env.board_to_str()==_env.board_to_str():
+                            board_duplicated=True
+                            break
+                    if not board_duplicated:
+                        best_envs.append(env)
+                        idx += 1
 
+            # best_envs=sorted_envs[0:self.k-1]
+            # best_envs.append(sorted_envs[-1])
             self.envs = best_envs
             for env in best_envs:
-                env.print_matrix()
                 print(env.violations)
+                if env.violations == 4:
+                    env.print_matrix()
             for env in self.envs:
                 if not env.violations:
                     return env.board
