@@ -132,36 +132,50 @@ class Environment:
             self.board[0][1].number = 0
             self.board[0][2].number = 0
             self.board[0][3].number = 6
+            self.board[0][3].default = True
             self.board[0][4].number = 0
             self.board[0][5].number = 0
             self.board[0][6].number = 8
+            self.board[0][6].default = True
             self.board[0][7].number = 9
+            self.board[0][7].default = True
             self.board[0][8].number = 5
+            self.board[0][8].default = True
 
             self.board[1][0].number = 0
             self.board[1][1].number = 4
+            self.board[1][1].default = True
             self.board[1][2].number = 0
             self.board[1][3].number = 1
+            self.board[1][3].default = True
             self.board[1][4].number = 0
             self.board[1][5].number = 0
             self.board[1][6].number = 5
+            self.board[1][6].default = True
             self.board[1][7].number = 2
+            self.board[1][7].default = True
             self.board[1][8].number = 0
 
             self.board[2][0].number = 0
             self.board[2][1].number = 1
+            self.board[2][1].default = True
             self.board[2][2].number = 0
             self.board[2][3].number = 0
             self.board[2][4].number = 6
+            self.board[2][4].default = True
             self.board[2][5].number = 7
+            self.board[2][5].default = True
             self.board[2][6].number = 4
+            self.board[2][6].default = True
             self.board[2][7].number = 0
             self.board[2][8].number = 3
+            self.board[2][8].default = True
 
             self.board[3][0].number = 0
             self.board[3][1].number = 0
             self.board[3][2].number = 0
             self.board[3][3].number = 3
+            self.board[3][3].default = True
             self.board[3][4].number = 0
             self.board[3][5].number = 0
             self.board[3][6].number = 0
@@ -169,19 +183,27 @@ class Environment:
             self.board[3][8].number = 0
 
             self.board[4][0].number = 6
+            self.board[4][0].default = True
             self.board[4][1].number = 0
             self.board[4][2].number = 0
             self.board[4][3].number = 0
             self.board[4][4].number = 3
+            self.board[4][4].default = True
             self.board[4][5].number = 8
+            self.board[4][5].default = True
             self.board[4][6].number = 7
+            self.board[4][6].default = True
             self.board[4][7].number = 1
+            self.board[4][7].default = True
             self.board[4][8].number = 0
 
             self.board[5][0].number = 4
+            self.board[5][0].default = True
             self.board[5][1].number = 0
             self.board[5][2].number = 2
+            self.board[5][2].default = True
             self.board[5][3].number = 7
+            self.board[5][3].default = True
             self.board[5][4].number = 0
             self.board[5][5].number = 0
             self.board[5][6].number = 0
@@ -192,31 +214,41 @@ class Environment:
             self.board[6][1].number = 0
             self.board[6][2].number = 0
             self.board[6][3].number = 2
+            self.board[6][3].default = True
             self.board[6][4].number = 0
             self.board[6][5].number = 3
+            self.board[6][5].default = True
             self.board[6][6].number = 0
             self.board[6][7].number = 7
+            self.board[6][7].default = True
             self.board[6][8].number = 6
+            self.board[6][8].default = True
 
             self.board[7][0].number = 3
+            self.board[7][0].default = True
             self.board[7][1].number = 0
             self.board[7][2].number = 0
             self.board[7][3].number = 0
             self.board[7][4].number = 0
             self.board[7][5].number = 0
             self.board[7][6].number = 1
+            self.board[7][6].default = True
             self.board[7][7].number = 6
+            self.board[7][7].default = True
             self.board[7][8].number = 7
+            self.board[7][8].default = True
 
 
             self.board[8][0].number = 0
             self.board[8][1].number = 0
             self.board[8][2].number = 5
+            self.board[8][2].default = True
             self.board[8][3].number = 0
             self.board[8][5].number = 0
             self.board[8][6].number = 0
             self.board[8][7].number = 0
             self.board[8][8].number = 8
+            self.board[8][8].default = True
             # ----------------------
 
 
@@ -295,7 +327,7 @@ class Environment:
     def randomize_board(self):
         for row_index, row in enumerate(self.board):
             for column_index, column in enumerate(row):
-                if not self.board[row_index][column_index].number:
+                if not self.board[row_index][column_index].default:
                     self.board[row_index][column_index].number = random.randrange(1, self.dimension)
                     # self.board[row_index][column_index].number = 1
 
@@ -320,48 +352,50 @@ class Environment:
         violations += self.check_violation_in_column(current_tile.number,column,row)
         violations += self.check_violation_in_row(current_tile.number,row,column)
 
-        # if column > 0:
-        #     previous_tile = self.board[row][column - 1]
-        #     if previous_tile.restictions:
-        #         for restriction in previous_tile.restictions:
-        #             if restriction == '<':
-        #                 if number_to_add <= previous_tile.number:
-        #                     violations += 1
-        #             elif restriction == '>':
-        #                 if number_to_add >= previous_tile.number:
-        #                     violations += 1
+        if column > 0:
+            previous_tile = self.board[row][column - 1]
+            if previous_tile.restictions:
+                for restriction in previous_tile.restictions:
+                    if restriction == '<':
+                        if current_tile.number <= previous_tile.number:
+                            violations += 1
+                    elif restriction == '>':
+                        if current_tile.number >= previous_tile.number:
+                            violations += 1
 
-        # if row > 0:
-        #     upper_tile = self.board[row - 1][column]
-        #     if upper_tile.restictions:
-        #         for restriction in upper_tile.restictions:
-        #             if restriction == '^':
-        #                 if number_to_add <= upper_tile.number:
-        #                     violations += 1
-        #             elif restriction == 'V':
-        #                 if number_to_add >= upper_tile.number:
-        #                     violations += 1
+        if row > 0:
+            upper_tile = self.board[row - 1][column]
+            if upper_tile.restictions:
+                for restriction in upper_tile.restictions:
+                    if restriction == '^':
+                        if current_tile.number <= upper_tile.number:
+                            violations += 1
+                    elif restriction == 'V':
+                        if current_tile.number >= upper_tile.number:
+                            violations += 1
 
-        # for restriction in current_tile.restictions:
-        #     if restriction == '<':
-        #         if self.board[row][column + 1].number > 0:
-        #             if number_to_add >= self.board[row][column + 1].number:
-        #                 violations += 1
-        #     elif restriction == '>':
-        #         if self.board[row][column + 1].number > 0:
-        #             if number_to_add <= self.board[row][column + 1].number and self.board[row][
-        #                 column + 1].number >= number_to_add:
-        #                 violations += 1
-        #
-        #     elif restriction == '^':
-        #         if self.board[row + 1][column].number > 0:
-        #             if number_to_add >= self.board[row + 1][column].number:
-        #                 violations += 1
-        #     else:
-        #         if self.board[row + 1][column].number > 0:
-        #             if number_to_add <= self.board[row + 1][column].number:
-        #                 violations += 1
+        for restriction in current_tile.restictions:
+            if restriction == '<':
+                if self.board[row][column + 1].number > 0:
+                    if current_tile.number >= self.board[row][column + 1].number:
+                        violations += 1
+            elif restriction == '>':
+                if self.board[row][column + 1].number > 0:
+                    if current_tile.number <= self.board[row][column + 1].number and self.board[row][
+                        column + 1].number >= current_tile.number:
+                        violations += 1
+
+            elif restriction == '^':
+                if self.board[row + 1][column].number > 0:
+                    if current_tile.number >= self.board[row + 1][column].number:
+                        violations += 1
+            else:
+                if self.board[row + 1][column].number > 0:
+                    if current_tile.number <= self.board[row + 1][column].number:
+                        violations += 1
+
         return violations
+
     def board_to_str(self):
         str_board = ''
         for row in self.board:
