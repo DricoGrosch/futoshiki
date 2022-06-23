@@ -6,14 +6,16 @@ from src.tile import Tile
 
 
 class Environment:
-    def __init__(self, dimension=4, game_number=1):
-        self.dimension = dimension
+    def __init__(self, game_number=1):
+        self.dimension = 0
         self.board = []
         self.violations = 0
-        for i in range(dimension):
-            self.board.append([Tile(0, []) for j in range(dimension)])
+
         # easy 4x4
         if game_number == 1:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -42,6 +44,9 @@ class Environment:
             self.board[3][1].restictions = ['>']
         # extreme 4x4
         elif game_number == 2:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -71,6 +76,9 @@ class Environment:
             self.board[3][2].restictions = ['>']
         # extreme 4x4 alternativa jogo 2
         elif game_number == 3:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 4
             self.board[0][0].default = True
             self.board[0][1].number = 2
@@ -117,6 +125,9 @@ class Environment:
             # tricky 4x4 (jogo1)
         # 4x4
         elif game_number == 4:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 4
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -146,6 +157,9 @@ class Environment:
             # tricky 5x5 (jogo 2)
         # 4x4 extreme
         elif game_number == 5:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -175,6 +189,9 @@ class Environment:
 
         # 4x4 extreme
         elif game_number == 6:
+            self.dimension = 4
+            self.init_board()
+
             self.board[0][0].number = 1
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -203,6 +220,8 @@ class Environment:
 
         # easy 5x5 (jogo 3)
         elif game_number == 7:
+            self.dimension = 5
+            self.init_board()
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 3
@@ -247,6 +266,8 @@ class Environment:
 
         # extreme 5x5 (jogo 4)
         elif game_number == 8:
+            self.dimension = 5
+            self.init_board()
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -288,6 +309,8 @@ class Environment:
             self.board[3][3].restictions = ['<']
         # trivial 5x5
         elif game_number == 9:
+            self.dimension = 5
+            self.init_board()
             self.board[0][0].number = 4
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -330,6 +353,9 @@ class Environment:
 
         # extreme 6x6
         elif game_number == 10:
+            self.dimension = 6
+            self.init_board()
+
             self.board[0][0].number = 1
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -387,6 +413,9 @@ class Environment:
             self.board[5][4].restictions = ['<']
         # trivial 6x6
         elif game_number == 11:
+            self.dimension = 6
+            self.init_board()
+
             self.board[0][0].number = 6
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -443,6 +472,9 @@ class Environment:
 
         # tricky 6x6 (jogo 8)
         elif game_number == 12:
+            self.dimension = 6
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -505,6 +537,9 @@ class Environment:
 
         # easy 6x6 (jogo 9)
         elif game_number == 13:
+            self.dimension = 6
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -565,6 +600,9 @@ class Environment:
 
         # extreme 6x6
         elif game_number == 14:
+            self.dimension = 6
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 2
@@ -609,6 +647,9 @@ class Environment:
         # -----------------------------------------------
         #     trivial 7x7
         elif game_number == 15:
+            self.dimension = 7
+            self.init_board()
+
             self.board[0][0].number = 5
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -682,6 +723,9 @@ class Environment:
             self.board[6][6].default = True
         # extreme 7x7 (jogo 5)
         elif game_number == 16:
+            self.dimension = 7
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -764,6 +808,9 @@ class Environment:
             self.board[3][3].restictions = ['<']
         # easy 7x7 (jogo 6)
         elif game_number == 17:
+            self.dimension = 7
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -847,6 +894,9 @@ class Environment:
 
         # tricky 7x7 (jogo 7)
         elif game_number == 18:
+            self.dimension = 7
+            self.init_board()
+
             self.board[0][0].number = 4
             self.board[0][0].default = True
             self.board[0][1].number = 0
@@ -932,6 +982,9 @@ class Environment:
 
         # easy 8x8 (jogo 10)
         elif game_number == 19:
+            self.dimension = 8
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -1037,6 +1090,9 @@ class Environment:
         # -----------------------------------
         # extreme 9x9
         elif game_number == 20:
+            self.dimension = 9
+            self.init_board()
+
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -1158,6 +1214,10 @@ class Environment:
             self.board[8][8].number = 8
             self.board[8][8].default = True
             # ----------------------
+
+    def init_board(self):
+        for i in range(self.dimension):
+            self.board.append([Tile(0, []) for j in range(self.dimension)])
 
     def number_is_in_row(self, number, row):
         for tile in self.board[row]:
