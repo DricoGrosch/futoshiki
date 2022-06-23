@@ -10,13 +10,15 @@ class LBSAgent(Agent):
     def __init__(self, *args, **kwargs):
         self.best_boards = []
         self.envs = []
-        self.k =4
+        self.k = 8
         super(LBSAgent, self).__init__(*args, **kwargs)
         for i in range(self.k):
             _env = copy.deepcopy(self.env)
             _env.randomize_board()
             _env.refresh_violations()
+
             self.envs.append(_env)
+
 
     def build_winning_board(self):
         start = datetime.datetime.now()
@@ -25,8 +27,8 @@ class LBSAgent(Agent):
 
         while (not lost):
             seconds =(datetime.datetime.now() - start).total_seconds()
-            print(seconds)
-            lost = seconds > 30
+            # print(seconds)
+            lost = seconds > 15
             child_envs = []
             for env in self.envs:
                 for row_index, row in enumerate(env.board):
@@ -40,6 +42,7 @@ class LBSAgent(Agent):
                                 # print(_env.violations)
                                 child_envs.append(_env)
 
+            random.shuffle(child_envs)
             random.shuffle(child_envs)
             sorted_envs = list(sorted(child_envs, key=lambda env: env.violations, ))
             best_envs=sorted_envs[0:self.k]

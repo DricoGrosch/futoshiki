@@ -831,7 +831,7 @@ class Environment:
             self.board[2][0].number = 0
             self.board[2][1].number = 0
             self.board[2][2].number = 0
-            self.board[2][2].number = 0
+            self.board[2][3].number = 0
             self.board[2][4].number = 5
             self.board[2][4].default = True
             self.board[2][5].number = 1
@@ -889,7 +889,7 @@ class Environment:
             self.board[4][3].restictions = ['>']
             self.board[4][5].restictions = ['>']
             self.board[5][0].restictions = ['>']
-            self.board[6][4].restictions = ['v']
+            self.board[5][4].restictions = ['v']
 
         # tricky 7x7 (jogo 7)
         elif game_number == 18:

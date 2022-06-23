@@ -34,7 +34,7 @@ class Agent:
         start = datetime.datetime.now()
         lost = False
 
-        while (not finished or not lost):
+        while (not finished and  not lost):
             seconds = (datetime.datetime.now() - start).total_seconds()
             print(seconds)
             lost = seconds > 30
