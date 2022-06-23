@@ -36,8 +36,7 @@ class Agent:
 
         while (not finished and  not lost):
             seconds = (datetime.datetime.now() - start).total_seconds()
-            print(seconds)
-            lost = seconds > 30
+            lost = seconds > 15
             current_env = self.graph.current_node.env
             if lost:
                 winning_env = current_env
