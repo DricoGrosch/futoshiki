@@ -7,7 +7,9 @@ from src.lbs_agent import LBSAgent
 from src.node import Node
 from src.tile import Tile
 
-env = Environment(game_number=8)
+# for i in range(100):
+#     for _i in range(1, 21):
+env = Environment(game_number=12)
 env.print_matrix()
 agent = Agent(env)
 # agent = LBSAgent(env)
@@ -18,8 +20,8 @@ for number in env.get_available_numbers_to_throw(0, 0):
     _env.board[0][0] = Tile(number, env.board[0][0].restictions)
     agent.graph.current_node = Node(_env, 0, 0)
     winning_env = agent.build_winning_board()
-    if  winning_env:
-        agent.env =  winning_env
+    if winning_env:
+        agent.env = winning_env
         break
 end = datetime.datetime.now()
 agent.env.print_matrix()

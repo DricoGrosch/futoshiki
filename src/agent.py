@@ -1,3 +1,5 @@
+import datetime
+
 from src.graph import Graph
 from src.node import Node
 
@@ -29,10 +31,18 @@ class Agent:
     def build_winning_board(self):
         finished = False
         winning_env = None
-        counter = 0
-        while (not finished):
-            counter += 1
+        start = datetime.datetime.now()
+        lost = False
+
+        while (not finished or not lost):
+            seconds = (datetime.datetime.now() - start).total_seconds()
+            print(seconds)
+            lost = seconds > 30
             current_env = self.graph.current_node.env
+            if lost:
+                winning_env = current_env
+                winning_env.refresh_violations()
+                break
             current_node_neighbors = self.graph.get_node_neighbors()
             self.graph.add_open_nodes(current_node_neighbors)
             finished, winner = self.finish(current_env)

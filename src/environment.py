@@ -469,9 +469,71 @@ class Environment:
             self.board[5][4].number = 0
             self.board[5][5].number = 6
             self.board[5][5].default = True
+        # easy 6x6 (jogo 9)
+        elif game_number == 12:
+            self.dimension = 6
+            self.init_board()
+
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][2].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+            self.board[3][4].number = 0
+            self.board[3][5].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 0
+            self.board[5][5].number = 0
+
+            self.board[0][0].restictions = ['v']
+            self.board[0][2].restictions = ['v']
+            self.board[0][4].restictions = ['<']
+            self.board[1][0].restictions = ['>']
+            self.board[1][2].restictions = ['>']
+            self.board[1][3].restictions = ['>']
+            self.board[2][1].restictions = ['<']
+            self.board[3][0].restictions = ['>']
+            self.board[3][3].restictions = ['<']
+            self.board[3][4].restictions = ['^']
+            self.board[3][5].restictions = ['^']
+            self.board[4][0].restictions = ['>']
+            self.board[4][2].restictions = ['>']
+            self.board[4][5].restictions = ['^']
+            self.board[5][2].restictions = ['>']
 
         # tricky 6x6 (jogo 8)
-        elif game_number == 12:
+        elif game_number == 13:
             self.dimension = 6
             self.init_board()
 
@@ -534,69 +596,6 @@ class Environment:
             self.board[4][2].restictions = ['^']
             self.board[4][5].restictions = ['^']
             self.board[5][3].restictions = ['>']
-
-        # easy 6x6 (jogo 9)
-        elif game_number == 13:
-            self.dimension = 6
-            self.init_board()
-
-            self.board[0][0].number = 0
-            self.board[0][1].number = 0
-            self.board[0][2].number = 0
-            self.board[0][3].number = 0
-            self.board[0][4].number = 0
-            self.board[0][5].number = 0
-
-            self.board[1][0].number = 0
-            self.board[1][1].number = 0
-            self.board[1][2].number = 0
-            self.board[1][3].number = 0
-            self.board[1][4].number = 0
-            self.board[1][5].number = 0
-
-            self.board[2][0].number = 0
-            self.board[2][1].number = 0
-            self.board[2][2].number = 0
-            self.board[2][2].number = 0
-            self.board[2][4].number = 0
-            self.board[2][5].number = 0
-
-            self.board[3][0].number = 0
-            self.board[3][1].number = 0
-            self.board[3][2].number = 0
-            self.board[3][3].number = 0
-            self.board[3][4].number = 0
-            self.board[3][5].number = 0
-
-            self.board[4][0].number = 0
-            self.board[4][1].number = 0
-            self.board[4][2].number = 0
-            self.board[4][3].number = 0
-            self.board[4][4].number = 0
-            self.board[4][5].number = 0
-
-            self.board[5][0].number = 0
-            self.board[5][1].number = 0
-            self.board[5][2].number = 0
-            self.board[5][3].number = 0
-            self.board[5][4].number = 0
-            self.board[5][5].number = 0
-
-            self.board[0][0].restictions = ['v']
-            self.board[0][2].restictions = ['v']
-            self.board[0][4].restictions = ['<']
-            self.board[1][0].restictions = ['>']
-            self.board[1][2].restictions = ['>']
-            self.board[1][3].restictions = ['>']
-            self.board[2][1].restictions = ['<']
-            self.board[3][0].restictions = ['>']
-            self.board[3][3].restictions = ['<']
-            self.board[3][4].restictions = ['^']
-            self.board[3][5].restictions = ['^']
-            self.board[4][0].restictions = ['>']
-            self.board[4][2].restictions = ['>']
-            self.board[4][5].restictions = ['^']
-            self.board[5][2].restictions = ['>']
 
         # extreme 6x6
         elif game_number == 14:
