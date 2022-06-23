@@ -1,6 +1,6 @@
 # FUTOSHIKI
 
-    A ideia do jogo é preencher o tabuleiro de forma que mesmo número não pode ser repetido na mesma coluna e linha
+A ideia do jogo é preencher o tabuleiro de forma que mesmo número não pode ser repetido na mesma coluna e linha
     Alguns números podem vir preenchidos já nas células e para dificultar as jogadas,algumas células podem ter restrições como: ">","V", as quais definem os números possíveis jogadas
     Para resolver o puzzle, foram implementados dois algoritmos: Backtracking e o Local Beam Search
 
