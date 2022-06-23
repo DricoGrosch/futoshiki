@@ -11,26 +11,26 @@ Com este algoritmo foi realizada uma simulação com 20 tabuleiros com diferente
 
 | Tabuleiro  |  Restrições violadas  |
 | ------------------- | ------------------- |
-|   easy 4x4    |  0 |
-|   extreme 4x4 |  0 |
-|   extreme 4x4 alternativa jogo 2 |  0 |
-|   4x4 |  0 |
-|   4x4 extreme |  0 |
-|   4x4 extreme |  0 |
-|   easy 5x5 |  0 |
-|   extreme 5x5  |  0 |
-|   trivial 5x5 |  0 |
-|   extreme 6x6 |  0 |
-|   trivial 6x6 |  0 |
-|   easy 6x6  |  6.23 |
-|   tricky 6x6 (jogo 8) |  3.16 |
-|   extreme 6x6 |  5.56 |
-|   trivial 7x7 |  2.53 |
-|   extreme 7x7  |  10.8 |
-|   easy 7x7  |  5.93 |
-|   tricky 7x7  |  10.86 |
-|   easy 8x8  |  18.9 |
-|   extreme 9x9 |  6.2 |
+|   Easy 4x4    |  0 |
+|   Extreme 4x4 |  0 |
+|   Extreme 4x4 alternativa jogo 2 |  0 |
+|   Extreme 4x4 |  0 |
+|   Extreme 4x4  |  0 |
+|   Extreme 4x4  |  0 |
+|   Easy 5x5 |  0 |
+|   Extreme 5x5  |  0 |
+|   Trivial 5x5 |  0 |
+|   Extreme 6x6 |  0 |
+|   Trivial 6x6 |  0 |
+|   Easy 6x6  |  6.23 |
+|   Tricky 6x6 |  3.16 |
+|   Extreme 6x6 |  5.56 |
+|   Trivial 7x7 |  2.53 |
+|   Extreme 7x7  |  10.8 |
+|   Easy 7x7  |  5.93 |
+|   Tricky 7x7  |  10.86 |
+|   Easy 8x8  |  18.9 |
+|   Extreme 9x9 |  6.2 |
 
 
 ## LOCAL BEAM SEARCH COM K=4
@@ -38,51 +38,54 @@ Como o algoritmo de backtrackin é exato, não é suficiente para tabuleiros mui
 
 | Tabuleiro  |  Restrições violadas  |
 | ------------------- | ------------------- |
-|   easy 4x4    | 1.23 |
-|   extreme 4x4 | 1.29 |
-|   extreme 4x4 alternativa jogo 2 | 2.41 |
-|   4x4 | 1.97 |
-|   4x4 extreme | 4 |
-|   4x4 extreme | 2.15 |
-|   easy 5x5  | 2.8 |
-|   extreme 5x5  | 4.87 |
-|   trivial 5x5 | 3.42 |
-|   extreme 6x6 | 8.23 |
-|   trivial 6x6 | 6 |
-|   easy 6x6  | 8.8 |
-|   tricky 6x6  | 5.12 |
-|   extreme 6x6 | 4.6 |
-|   trivial 7x7 | 9.4 |
-|   extreme 7x7 | 11.2 |
-|   easy 7x7  | 14.23 |
-|   tricky 7x7 | 18.4 |
-|   easy 8x8  | 60.6 |
-|   extreme 9x9 | 64.49 |
+|   Easy 4x4    | 1.23 |
+|   Extreme 4x4 | 1.29 |
+|   Extreme 4x4 alternativa jogo 2 | 2.41 |
+|   Extreme 4x4 | 1.97 |
+|   Extreme 4x4  | 4 |
+|   Extreme 4x4  | 2.15 |
+|   Easy 5x5  | 2.8 |
+|   Extreme 5x5  | 4.87 |
+|   Trivial 5x5 | 3.42 |
+|   Extreme 6x6 | 8.23 |
+|   Trivial 6x6 | 6 |
+|   Easy 6x6  | 8.8 |
+|   Tricky 6x6  | 5.12 |
+|   Extreme 6x6 | 4.6 |
+|   Trivial 7x7 | 9.4 |
+|   Extreme 7x7 | 11.2 |
+|   Easy 7x7  | 14.23 |
+|   Tricky 7x7 | 18.4 |
+|   Easy 8x8  | 60.6 |
+|   Extreme 9x9 | 64.49 |
 
 ## LOCAL BEAM SEARCH COM K=8
 
 | Tabuleiro  |  Restrições violadas  |
 | ------------------- | ------------------- |
-|   easy 4x4  | 2.2  |
-|   extreme 4x4  | 2.3  |
-|   extreme 4x4 alternativa jogo 2  | 0  |
-|   4x4  | 2.2  |
-|   4x4 extreme  | 2.06  |
-|   4x4 extreme  | 1.6  |
-|   easy 5x5  | 2.9  |
-|   extreme 5x5  | 2.83  |
-|   trivial 5x5  | 0.6  |
-|   extreme 6x6  | 10.53  |
-|   trivial 6x6  | 8.6  |
-|   easy 6x6  | 30.6  |
-|   tricky 6x6  | 20.13  |
-|   extreme 6x6  | 19.1  |
-|   trivial 7x7  | 35.73  |
-|   extreme 7x7  | 52.9  |
-|   easy 7x7  | 61.83  |
-|   tricky 7x7  | 72.06  |
-|   easy 8x8  | 112.8  |
-|   extreme 9x9  | 98.66  |
+|   Easy 4x4  | 2.2  |
+|   Extreme 4x4  | 2.3  |
+|   Extreme 4x4 alternativa jogo 2  | 0  |
+|   Extreme 4x4  | 2.2  |
+|   Extreme 4x4   | 2.06  |
+|   Extreme 4x4   | 1.6  |
+|   Easy 5x5  | 2.9  |
+|   Extreme 5x5  | 2.83  |
+|   Trivial 5x5  | 0.6  |
+|   Extreme 6x6  | 10.53  |
+|   Trivial 6x6  | 8.6  |
+|   Easy 6x6  | 30.6  |
+|   Tricky 6x6  | 20.13  |
+|   Extreme 6x6  | 19.1  |
+|   Trivial 7x7  | 35.73  |
+|   Extreme 7x7  | 52.9  |
+|   Easy 7x7  | 61.83  |
+|   Tricky 7x7  | 72.06  |
+|   Easy 8x8  | 112.8  |
+|   Extreme 9x9  | 98.66  |
 
 
 Os algoritmos que utilizam o Local Beam Search tentem a ficar presos em um máximo local, logo não encontram a solução ótima. Para tentar solucionar o problema poderia ser implementado uma estratégia de random restart para escapar do local atual 
+
+#Instruções de execução
+Não há nenhuma biblioteca terceira a ser instalada, é necessário apenas executar o arquivo main.py
