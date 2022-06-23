@@ -368,7 +368,7 @@ class Environment:
             self.board[4][4].restictions = ['v']
 
         # easy 5x5 (jogo 3)
-        elif game_number == 7:
+        elif game_number == 8:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 3
@@ -412,7 +412,7 @@ class Environment:
             self.board[3][3].restictions = ['v']
 
         # extreme 5x5 (jogo 4)
-        elif game_number == 7:
+        elif game_number == 9:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -454,7 +454,7 @@ class Environment:
             self.board[3][3].restictions = ['<']
 
         # extreme 7x7 (jogo 5)
-        elif game_number == 7:
+        elif game_number == 10:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -537,7 +537,7 @@ class Environment:
             self.board[3][3].restictions = ['<']
 
         # easy 7x7 (jogo 6)
-        elif game_number == 7:
+        elif game_number == 11:
             self.board[0][0].number = 0
             self.board[0][1].number = 0
             self.board[0][2].number = 0
@@ -618,7 +618,315 @@ class Environment:
             self.board[4][5].restictions = ['>']
             self.board[5][0].restictions = ['>']
             self.board[6][4].restictions = ['v']
- 
+
+
+        # tricky 7x7 (jogo 7)
+        elif game_number == 12:
+            self.board[0][0].number = 4
+            self.board[0][0].default = True
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+            self.board[0][6].number = 7
+
+            self.board[1][0].number = 2
+            self.board[1][0].default = True
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+            self.board[1][6].number = 6
+            self.board[1][6].default = True
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][2].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+            self.board[2][6].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+            self.board[3][4].number = 0
+            self.board[3][5].number = 0
+            self.board[3][6].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+            self.board[4][6].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 0
+            self.board[5][5].number = 0
+            self.board[5][6].number = 0
+
+            self.board[6][0].number = 0
+            self.board[6][1].number = 0
+            self.board[6][2].number = 0
+            self.board[6][3].number = 0
+            self.board[6][4].number = 0
+            self.board[6][5].number = 0
+            self.board[6][6].number = 0
+
+            self.board[0][5].restictions = ['v']
+            self.board[1][0].restictions = ['>']
+            self.board[1][2].restictions = ['^']
+            self.board[1][3].restictions = ['>']
+            self.board[1][4].restictions = ['v']
+            self.board[2][1].restictions = ['<']
+            self.board[2][3].restictions = ['<']
+            self.board[2][6].restictions = ['^']
+            self.board[3][0].restictions = ['^']
+            self.board[3][0].restictions = ['>']
+            self.board[3][3].restictions = ['v']
+            self.board[4][0].restictions = ['^']
+            self.board[4][2].restictions = ['<']
+            self.board[4][3].restictions = ['v']
+            self.board[4][3].restictions = ['>']
+            self.board[4][4].restictions = ['>']
+            self.board[5][0].restictions = ['^']
+            self.board[5][1].restictions = ['^']
+            self.board[5][3].restictions = ['v']
+            self.board[5][5].restictions = ['>']
+            self.board[6][5].restictions = ['>']
+
+        # tricky 6x6 (jogo 8)
+        elif game_number == 13:
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 4
+            self.board[2][1].default = True
+            self.board[2][2].number = 0
+            self.board[2][2].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 2
+            self.board[3][2].default = True
+            self.board[3][2].number = 0
+            self.board[3][3].number = 1
+            self.board[3][3].default = True
+            self.board[3][4].number = 0
+            self.board[3][5].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 0
+            self.board[5][5].number = 0
+
+            self.board[0][0].restictions = ['^']
+            self.board[0][0].restictions = ['>']
+            self.board[0][1].restictions = ['^']
+            self.board[0][1].restictions = ['>']
+            self.board[0][3].restictions = ['>']
+            self.board[1][2].restictions = ['>']
+            self.board[1][4].restictions = ['^']
+            self.board[1][4].restictions = ['>']
+            self.board[3][4].restictions = ['>']
+            self.board[4][0].restictions = ['^']
+            self.board[4][1].restictions = ['v']
+            self.board[4][2].restictions = ['^']
+            self.board[4][5].restictions = ['^']
+            self.board[5][3].restictions = ['>']
+
+        # easy 6x6 (jogo 9)
+        elif game_number == 14:
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][2].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+            self.board[3][4].number = 0
+            self.board[3][5].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 0
+            self.board[5][5].number = 0
+
+            self.board[0][0].restictions = ['v']
+            self.board[0][2].restictions = ['v']
+            self.board[0][4].restictions = ['<']
+            self.board[1][0].restictions = ['>']
+            self.board[1][2].restictions = ['>']
+            self.board[1][3].restictions = ['>']
+            self.board[2][1].restictions = ['<']
+            self.board[3][0].restictions = ['>']
+            self.board[3][3].restictions = ['<']
+            self.board[3][4].restictions = ['^']
+            self.board[3][5].restictions = ['^']
+            self.board[4][0].restictions = ['>']
+            self.board[4][2].restictions = ['>']
+            self.board[4][5].restictions = ['^']
+            self.board[5][2].restictions = ['>']
+
+        # easy 8x8 (jogo 10)
+        elif game_number == 15:
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+            self.board[0][5].number = 0
+            self.board[0][6].number = 0
+            self.board[0][7].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 4
+            self.board[1][1].default = True
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+            self.board[1][5].number = 0
+            self.board[1][6].number = 0
+            self.board[1][7].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][2].number = 0
+            self.board[2][4].number = 0
+            self.board[2][5].number = 0
+            self.board[2][6].number = 0
+            self.board[2][7].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+            self.board[3][4].number = 0
+            self.board[3][5].number = 0
+            self.board[3][6].number = 0
+            self.board[3][7].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 0
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 0
+            self.board[4][5].number = 0
+            self.board[4][6].number = 0
+            self.board[4][7].number = 0
+
+            self.board[5][0].number = 0
+            self.board[5][1].number = 0
+            self.board[5][2].number = 0
+            self.board[5][3].number = 0
+            self.board[5][4].number = 7
+            self.board[5][4].default = True
+            self.board[5][5].number = 0
+            self.board[5][6].number = 0
+            self.board[5][7].number = 0
+
+            self.board[6][0].number = 0
+            self.board[6][1].number = 0
+            self.board[6][2].number = 0
+            self.board[6][3].number = 0
+            self.board[6][4].number = 0
+            self.board[6][5].number = 0
+            self.board[6][6].number = 0
+            self.board[6][7].number = 0
+
+            self.board[7][0].number = 0
+            self.board[7][1].number = 0
+            self.board[7][2].number = 2
+            self.board[7][2].default = True
+            self.board[7][3].number = 0
+            self.board[7][4].number = 0
+            self.board[7][5].number = 0
+            self.board[7][6].number = 0
+            self.board[7][7].number = 0
+
+            self.board[0][2].restictions = ['<']
+            self.board[0][3].restictions = ['^']
+            self.board[0][4].restictions = ['v']
+            self.board[0][5].restictions = ['>']
+            self.board[0][6].restictions = ['>']
+            self.board[1][1].restictions = ['v']
+            self.board[1][3].restictions = ['<']
+            self.board[1][7].restictions = ['^']
+            self.board[2][1].restictions = ['>']
+            self.board[3][0].restictions = ['>']
+            self.board[3][3].restictions = ['^']
+            self.board[3][4].restictions = ['^']
+            self.board[4][0].restictions = ['^']
+            self.board[4][1].restictions = ['v']
+            self.board[4][2].restictions = ['v']
+            self.board[5][0].restictions = ['<']
+            self.board[5][2].restictions = ['v']
+            self.board[6][0].restictions = ['v']
+            self.board[6][1].restictions = ['<']
+            self.board[6][3].restictions = ['v']
+            self.board[6][5].restictions = ['<']
+            self.board[6][6].restictions = ['^']
+            self.board[7][1].restictions = ['<']
+            self.board[7][4].restictions = ['>']
+            self.board[7][5].restictions = ['>']
 
     def number_is_in_row(self, number, row):
         for tile in self.board[row]:
