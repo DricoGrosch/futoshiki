@@ -42,7 +42,7 @@ class Agent:
             if lost:
                 winning_env = current_env
                 winning_env.refresh_violations()
-                break
+                continue
             current_node_neighbors = self.graph.get_node_neighbors()
             self.graph.add_open_nodes(current_node_neighbors)
             finished, winner = self.finish(current_env)

@@ -6,7 +6,7 @@ from src.tile import Tile
 
 
 class Environment:
-    def __init__(self, game_number=1):
+    def __init__(self, game_number):
         self.dimension = 0
         self.board = []
         self.violations = 0
