@@ -1021,13 +1021,17 @@ class Environment:
             self.board[5][4].number = 0
             self.board[5][5].number = 6
             self.board[5][5].default = True
-    #     trivial 7x7
-        elif game_number==18:
+        #     trivial 7x7
+        elif game_number == 18:
             self.board[0][0].number = 5
+            self.board[0][0].default = True
             self.board[0][1].number = 0
             self.board[0][2].number = 4
+            self.board[0][2].default = True
             self.board[0][3].number = 2
+            self.board[0][3].default = True
             self.board[0][4].number = 1
+            self.board[0][4].default = True
             self.board[0][5].number = 0
             self.board[0][6].number = 0
 
@@ -1037,6 +1041,7 @@ class Environment:
             self.board[1][3].number = 0
             self.board[1][4].number = 0
             self.board[1][5].number = 6
+            self.board[1][5].default = True
             self.board[1][6].number = 0
 
             self.board[2][0].number = 0
@@ -1051,25 +1056,34 @@ class Environment:
             self.board[3][1].number = 0
             self.board[3][2].number = 0
             self.board[3][3].number = 5
+            self.board[3][3].default = True
             self.board[3][4].number = 3
+            self.board[3][4].default = True
             self.board[3][5].number = 0
             self.board[3][6].number = 0
 
             self.board[4][0].number = 2
+            self.board[4][0].default = True
             self.board[4][1].number = 0
             self.board[4][2].number = 6
+            self.board[4][2].default = True
             self.board[4][3].number = 0
             self.board[4][4].number = 5
+            self.board[4][4].default = True
             self.board[4][5].number = 0
             self.board[4][6].number = 0
 
             self.board[5][0].number = 0
             self.board[5][1].number = 0
             self.board[5][2].number = 5
+            self.board[5][2].default = True
             self.board[5][3].number = 1
+            self.board[5][3].default = True
             self.board[5][4].number = 2
+            self.board[5][4].default = True
             self.board[5][5].number = 0
             self.board[5][6].number = 3
+            self.board[5][6].default = True
 
             self.board[6][0].number = 0
             self.board[6][1].number = 0
@@ -1077,7 +1091,65 @@ class Environment:
             self.board[6][3].number = 0
             self.board[6][4].number = 0
             self.board[6][5].number = 7
+            self.board[6][5].default = True
             self.board[6][6].number = 4
+            self.board[6][6].default = True
+
+        # 4x4 extreme
+        elif game_number == 19:
+            self.board[0][0].number = 0
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 3
+            self.board[0][3].default = True
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][3].number = 0
+
+            self.board[3][0].number = 3
+            self.board[3][0].default = True
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 0
+
+            self.board[0][1].restictions = ['^']
+            self.board[0][2].restictions = ['V']
+            self.board[1][0].restictions = ['^']
+            self.board[3][1].restictions = ['<']
+
+        # 4x4 extreme
+        else:
+            self.board[0][0].number = 1
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+
+            self.board[1][0].number = 0
+            self.board[1][1].number = 0
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 0
+            self.board[2][3].number = 0
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 3
+
+            self.board[0][1].restictions = ['V']
+            self.board[1][1].restictions = ['>']
+            self.board[1][3].restictions = ['V']
+            self.board[2][0].restictions = ['V']
 
     def number_is_in_row(self, number, row):
         for tile in self.board[row]:
