@@ -238,7 +238,6 @@ class Environment:
             self.board[7][8].number = 7
             self.board[7][8].default = True
 
-
             self.board[8][0].number = 0
             self.board[8][1].number = 0
             self.board[8][2].number = 5
@@ -253,40 +252,40 @@ class Environment:
         # extreme 4x4 alternastiva jogo 2
         elif game_number == 5:
             self.board[0][0].number = 4
-            self.board[0][0].default=True
+            self.board[0][0].default = True
             self.board[0][1].number = 2
-            self.board[0][1].default=True
+            self.board[0][1].default = True
             self.board[0][2].number = 1
-            self.board[0][2].default=True
+            self.board[0][2].default = True
             self.board[0][3].number = 3
-            self.board[0][3].default=True
+            self.board[0][3].default = True
 
             self.board[1][0].number = 3
-            self.board[1][0].default=True
+            self.board[1][0].default = True
             self.board[1][1].number = 4
-            self.board[1][1].default=True
+            self.board[1][1].default = True
             self.board[1][2].number = 2
-            self.board[1][2].default=True
+            self.board[1][2].default = True
             self.board[1][3].number = 1
-            self.board[1][3].default=True
+            self.board[1][3].default = True
 
             self.board[2][0].number = 2
-            self.board[2][0].default=True
+            self.board[2][0].default = True
             self.board[2][1].number = 1
-            self.board[2][1].default=True
+            self.board[2][1].default = True
             self.board[2][2].number = 3
-            self.board[2][2].default=True
+            self.board[2][2].default = True
             self.board[2][3].number = 4
-            self.board[2][3].default=True
+            self.board[2][3].default = True
 
             self.board[3][0].number = 1
-            self.board[3][0].default=True
+            self.board[3][0].default = True
             self.board[3][0].default = True
             self.board[3][1].number = 3
-            self.board[3][1].default=True
+            self.board[3][1].default = True
             self.board[3][1].default = True
             self.board[3][2].number = 4
-            self.board[3][2].default=True
+            self.board[3][2].default = True
             self.board[3][3].number = 0
 
             self.board[0][0].restictions = ['V']
@@ -331,7 +330,6 @@ class Environment:
             self.board[0][2].default = True
             self.board[0][3].number = 0
             self.board[0][4].number = 0
-
 
             self.board[1][0].number = 0
             self.board[1][1].number = 0
@@ -618,7 +616,6 @@ class Environment:
             self.board[4][5].restictions = ['>']
             self.board[5][0].restictions = ['>']
             self.board[6][4].restictions = ['v']
-
 
         # tricky 7x7 (jogo 7)
         elif game_number == 12:
@@ -928,6 +925,46 @@ class Environment:
             self.board[7][4].restictions = ['>']
             self.board[7][5].restictions = ['>']
 
+        # trivial 5x5
+        elif game_number == 16:
+            self.board[0][0].number = 4
+            self.board[0][0].default = True
+            self.board[0][1].number = 0
+            self.board[0][2].number = 0
+            self.board[0][3].number = 0
+            self.board[0][4].number = 0
+
+            self.board[1][0].number = 1
+            self.board[1][0].default = True
+            self.board[1][1].number = 3
+            self.board[1][1].default = True
+            self.board[1][2].number = 0
+            self.board[1][3].number = 0
+            self.board[1][4].number = 0
+
+            self.board[2][0].number = 0
+            self.board[2][1].number = 0
+            self.board[2][2].number = 1
+            self.board[2][2].default = True
+            self.board[2][2].number = 0
+            self.board[2][4].number = 3
+            self.board[2][4].default = True
+
+            self.board[3][0].number = 0
+            self.board[3][1].number = 0
+            self.board[3][2].number = 0
+            self.board[3][3].number = 2
+            self.board[3][3].default = True
+            self.board[3][4].number = 0
+
+            self.board[4][0].number = 0
+            self.board[4][1].number = 2
+            self.board[4][1].default = True
+            self.board[4][2].number = 0
+            self.board[4][3].number = 0
+            self.board[4][4].number = 1
+            self.board[4][4].default = True
+
     def number_is_in_row(self, number, row):
         for tile in self.board[row]:
             if tile.number == number:
@@ -935,13 +972,13 @@ class Environment:
         return False
 
     def check_violation_in_row(self, number, row, current_tile_column):
-        _violations =0
+        _violations = 0
 
         for column_index, tile in enumerate(self.board[row]):
-            if column_index==current_tile_column:
-               continue
-            if tile.number==number:
-                _violations+=1
+            if column_index == current_tile_column:
+                continue
+            if tile.number == number:
+                _violations += 1
         return _violations
 
     def number_is_in_column(self, number, column):
@@ -951,14 +988,13 @@ class Environment:
         return False
 
     def check_violation_in_column(self, number, column, current_tile_row):
-        _violations =0
+        _violations = 0
         for row_index, row in enumerate(self.board):
-            if row_index==current_tile_row:
-               continue
-            if row[column].number==number:
-                _violations +=1
+            if row_index == current_tile_row:
+                continue
+            if row[column].number == number:
+                _violations += 1
         return _violations
-
 
     def number_available_in_restrictions(self, current_tile, number_to_add, row, column):
         if column > 0:
@@ -1025,8 +1061,8 @@ class Environment:
 
     def count_tile_restrictions_violations(self, current_tile, row, column):
         violations = 0
-        violations += self.check_violation_in_column(current_tile.number,column,row)
-        violations += self.check_violation_in_row(current_tile.number,row,column)
+        violations += self.check_violation_in_column(current_tile.number, column, row)
+        violations += self.check_violation_in_row(current_tile.number, row, column)
 
         if column > 0:
             previous_tile = self.board[row][column - 1]
@@ -1084,7 +1120,7 @@ class Environment:
         for row_index, row in enumerate(self.board):
             for column_index, column in enumerate(row):
                 current_tile = self.board[row_index][column_index]
-                _violations += self.count_tile_restrictions_violations(current_tile,row_index,column_index)
+                _violations += self.count_tile_restrictions_violations(current_tile, row_index, column_index)
         self.violations = _violations
 
     def create_node(self, row, column, number):
