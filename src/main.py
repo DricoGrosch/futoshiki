@@ -13,7 +13,7 @@ for _i in range(1, 2):
     env = None
     winning_env = None
     # for i in range(30):
-    env = Environment(game_number=20)
+    env = Environment(game_number=1)
     #env.print_matrix()
     agent = Agent(env)
     # agent = LBSAgent(env)
@@ -36,6 +36,6 @@ for _i in range(1, 2):
     # print("---------------------------------------------------------------")
     # print("---------------------------------------------------------------")
 
-print ("JOGO "+str(_i)+" violações"+ str(totalViolations/30))
+print ("JOGO "+str(_i)+" violações "+ str(totalViolations/30))
 totalViolations = 0
 print("---------------------------------------------------------------")

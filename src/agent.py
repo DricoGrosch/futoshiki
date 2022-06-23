@@ -50,10 +50,9 @@ class Agent:
                     winning_env = current_env
                 continue
             next_node_to_visit = self.pop_from_open_nodes(self.graph.open_nodes)
-
             if next_node_to_visit:
                 self.graph.visit_node(next_node_to_visit)
         return winning_env
 
     def pop_from_open_nodes(self, open_nodes):
-        return self.graph.open_nodes.pop(0)
+        return self.graph.open_nodes.pop()
