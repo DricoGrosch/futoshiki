@@ -31,6 +31,8 @@ Com este algoritmo foi realizada uma simulação com 20 tabuleiros com diferente
 |   Tricky 7x7  |  10.86 |
 |   Easy 8x8  |  18.9 |
 |   Extreme 9x9 |  6.2 |
+|   Média | 3.5  |
+|   Desvio padrão | 5.15 |
 
 
 ## LOCAL BEAM SEARCH COM K=4
@@ -58,6 +60,9 @@ Como o algoritmo de backtrackin é exato, não é suficiente para tabuleiros mui
 |   Tricky 7x7 | 18.4 |
 |   Easy 8x8  | 60.6 |
 |   Extreme 9x9 | 64.49 |
+|   Média | 11.76  |
+|   Desvio padrão |  17.95 |
+
 
 ## LOCAL BEAM SEARCH COM K=8
 
@@ -83,7 +88,8 @@ Como o algoritmo de backtrackin é exato, não é suficiente para tabuleiros mui
 |   Tricky 7x7  | 72.06  |
 |   Easy 8x8  | 112.8  |
 |   Extreme 9x9  | 98.66  |
-
+|   Média | 26.98  |
+|   Desvio padrão | 34.73  |
 
 Os algoritmos que utilizam o Local Beam Search tentem a ficar presos em um máximo local, logo não encontram a solução ótima. Para tentar solucionar o problema poderia ser implementado uma estratégia de random restart para escapar do local atual 
 
