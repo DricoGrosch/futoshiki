@@ -13,10 +13,10 @@ for _i in range(1, 2):
     env = None
     winning_env = None
     # for i in range(30):
-    env = Environment(game_number=1)
+    env = Environment(game_number=2)
     #env.print_matrix()
-    agent = Agent(env)
-    # agent = LBSAgent(env)
+    # agent = Agent(env)
+    agent = LBSAgent(env)
     winning_board = None
     start = datetime.datetime.now()
     winning_env=None
