@@ -95,3 +95,4 @@ Os algoritmos que utilizam o Local Beam Search tentem a ficar presos em um máxi
 
 #Instruções de execução
 Não há nenhuma biblioteca terceira a ser instalada, é necessário apenas executar o arquivo main.py
+Para alterar o tipo de busca, basta alternar o comentario da linha 18 ou 19
